@@ -8,18 +8,22 @@ specifiers:
   '@nestjs/platform-express': ^8.0.0
   '@nestjs/schematics': ^8.0.0
   '@nestjs/testing': ^8.0.0
+  '@types/cors': ^2.8.12
   '@types/express': ^4.17.13
   '@types/express-session': ^1.17.4
   '@types/jest': 27.0.2
+  '@types/multer': ^1.4.7
   '@types/node': ^16.0.0
   '@types/supertest': ^2.0.11
   '@typescript-eslint/eslint-plugin': ^5.0.0
   '@typescript-eslint/parser': ^5.0.0
+  cors: ^2.8.5
   eslint: ^8.0.1
   eslint-config-prettier: ^8.3.0
   eslint-plugin-prettier: ^4.0.0
   express-session: ^1.17.2
   jest: ^27.2.5
+  multer: ^1.4.5-lts.1
   prettier: ^2.3.2
   reflect-metadata: ^0.1.13
   rimraf: ^3.0.2
@@ -38,7 +42,9 @@ dependencies:
   '@nestjs/core': 8.2.6_u46rfc4zsyf7ow555nvruuceuq
   '@nestjs/mapped-types': 1.0.1_zwqlllkoz3pgwuz26maj23dahm
   '@nestjs/platform-express': 8.2.6_omvfjisvr5sie64myt43vlcpd4
+  cors: 2.8.5
   express-session: 1.17.2
+  multer: 1.4.5-lts.1
   reflect-metadata: 0.1.13
   rimraf: 3.0.2
   rxjs: 7.8.0
@@ -48,9 +54,11 @@ devDependencies:
   '@nestjs/cli': 8.2.0_eslint@8.28.0
   '@nestjs/schematics': 8.0.5_typescript@4.9.3
   '@nestjs/testing': 8.3.1_xcj4vaed5y3ura5w2zeatcu25m
+  '@types/cors': 2.8.12
   '@types/express': 4.17.14
   '@types/express-session': 1.17.4
   '@types/jest': 27.0.2
+  '@types/multer': 1.4.7
   '@types/node': 16.18.12
   '@types/supertest': 2.0.11
   '@typescript-eslint/eslint-plugin': 5.44.0_fnsv2sbzcckq65bwfk7a5xwslu
@@ -1097,6 +1105,10 @@ packages:
     resolution: {integrity: sha1-Zq2TMfY/6KPT2djG45Bt0Q9kRug=, tarball: '@types/cookiejar/download/@types/cookiejar-2.1.2.tgz'}
     dev: true
 
+  /@types/cors/2.8.12:
+    resolution: {integrity: sha1-ayxRCnrXA56Y57jT1lmPQ1nlwIA=, tarball: '@types/cors/download/@types/cors-2.8.12.tgz'}
+    dev: true
+
   /@types/eslint-scope/3.7.4:
     resolution: {integrity: sha1-N/wSI/B4bDlicGihLpTW5vxh3hY=, tarball: '@types/eslint-scope/download/@types/eslint-scope-3.7.4.tgz'}
     dependencies:
@@ -1177,6 +1189,12 @@ packages:
 
   /@types/mime/3.0.1:
     resolution: {integrity: sha1-X48rygpYY8tpvAsKzYjJbLHUrhA=, tarball: '@types/mime/download/@types/mime-3.0.1.tgz'}
+    dev: true
+
+  /@types/multer/1.4.7:
+    resolution: {integrity: sha1-ic8DVHwox7vMcm8Cnip2pyMsx54=, tarball: '@types/multer/download/@types/multer-1.4.7.tgz'}
+    dependencies:
+      '@types/express': 4.17.14
     dev: true
 
   /@types/node/16.18.12:
@@ -1844,6 +1862,13 @@ packages:
     dependencies:
       dicer: 0.2.5
       readable-stream: 1.1.14
+
+  /busboy/1.6.0:
+    resolution: {integrity: sha1-lm6japUC5DzbkUaWJSO5L1MfaJM=, tarball: busboy/download/busboy-1.6.0.tgz}
+    engines: {node: '>=10.16.0'}
+    dependencies:
+      streamsearch: 1.1.0
+    dev: false
 
   /bytes/3.1.1:
     resolution: {integrity: sha1-PwGCkctMutmsy25pcLypyIieh5o=, tarball: bytes/download/bytes-3.1.1.tgz}
@@ -4005,6 +4030,19 @@ packages:
       type-is: 1.6.18
       xtend: 4.0.2
 
+  /multer/1.4.5-lts.1:
+    resolution: {integrity: sha1-gD4krRmE9Y7f+8efVuMFrsXP0aw=, tarball: multer/download/multer-1.4.5-lts.1.tgz}
+    engines: {node: '>= 6.0.0'}
+    dependencies:
+      append-field: 1.0.0
+      busboy: 1.6.0
+      concat-stream: 1.6.2
+      mkdirp: 0.5.6
+      object-assign: 4.1.1
+      type-is: 1.6.18
+      xtend: 4.0.2
+    dev: false
+
   /mute-stream/0.0.8:
     resolution: {integrity: sha1-FjDEKyJR/4HiooPelqVJfqkuXg0=, tarball: mute-stream/download/mute-stream-0.0.8.tgz}
     dev: true
@@ -4712,6 +4750,11 @@ packages:
   /streamsearch/0.1.2:
     resolution: {integrity: sha1-gIudDlb8Jz2Am6VzOOkpkZoanxo=, tarball: streamsearch/download/streamsearch-0.1.2.tgz}
     engines: {node: '>=0.8.0'}
+
+  /streamsearch/1.1.0:
+    resolution: {integrity: sha1-QE3R4iR8qUr1VOhBqO8OqiONp2Q=, tarball: streamsearch/download/streamsearch-1.1.0.tgz}
+    engines: {node: '>=10.0.0'}
+    dev: false
 
   /string-length/4.0.2:
     resolution: {integrity: sha1-qKjce9XBqCubPIuH4SX2aHG25Xo=, tarball: string-length/download/string-length-4.0.2.tgz}
