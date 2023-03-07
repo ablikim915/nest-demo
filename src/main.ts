@@ -6,6 +6,7 @@ import { Request, Response, NextFunction } from "express";
 import { NestExpressApplication } from '@nestjs/platform-express';
 import * as cors from 'cors';
 import { join } from 'path';
+import { Response as ResponseIntercept } from './common/response';
 
 const whiteList = ["/list"] // 白名单
 
@@ -27,7 +28,7 @@ async function bootstrap() {
   // 为了直接访问images目录下的静态文件，比如：http://localhost:8008/1678088451052.png
   app.useStaticAssets(join(__dirname, 'images'), {
     prefix: "/img" // 设置虚拟路径
-  }) 
+  })
   // 版本控制
   app.enableVersioning({
     type: VersioningType.URI
@@ -45,8 +46,11 @@ async function bootstrap() {
   app.use(cors()) 
   // 全局中间件
   app.use(GlobalMiddleWare) 
-  await app.listen(port);
+  // 注册全局拦截器
+  app.useGlobalInterceptors(new ResponseIntercept())
 
+
+  await app.listen(port);
   Logger.log(`服务已启动 --> http://localhost:${port}`)
 }
 bootstrap();

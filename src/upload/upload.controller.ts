@@ -10,8 +10,8 @@ export class UploadController {
   constructor(private readonly uploadService: UploadService) {}
 
   @Post('album')
-  @UseInterceptors( // 处理上传文件
-    FileInterceptor('file') // 定义请求参数名称
+  @UseInterceptors( // 注册拦截器
+    FileInterceptor('file') // 处理文件类请求的拦截器，并设置参数名
   )
   upload(@UploadedFile() file) {
     console.log('--file--', file)
@@ -21,7 +21,7 @@ export class UploadController {
   @Get('download')
   download(@Res() res:Response) {
     const url = join(__dirname, '../images/1678088451052.png');
-    res.download(url) 
+    res.download(url)
   }
 
   // 文件流的方式下载文件
