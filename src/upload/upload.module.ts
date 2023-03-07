@@ -5,7 +5,7 @@ import { MulterModule } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { join, extname } from 'path';
 
-// 初始化存放静态图片资源的目录模块
+// 初始化存放静态图片资源的目录模块2
 const ImageDirModule = MulterModule.register({
   storage: diskStorage({
     destination: join(__dirname, '../images'),
