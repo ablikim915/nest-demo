@@ -7,6 +7,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import * as cors from 'cors';
 import { join } from 'path';
 import { Response as ResponseIntercept } from './common/response';
+import { HttpExceptionFilter } from './common/filter';
 
 const whiteList = ["/list"] // 白名单
 
@@ -48,6 +49,8 @@ async function bootstrap() {
   app.use(GlobalMiddleWare) 
   // 注册全局拦截器
   app.useGlobalInterceptors(new ResponseIntercept())
+  // 注册全局过滤器
+  app.useGlobalFilters(new HttpExceptionFilter())
 
 
   await app.listen(port);
