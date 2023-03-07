@@ -1,7 +1,16 @@
-import { Controller, Get, Post, Req, Res, Session, Body, Scope, Inject } from '@nestjs/common';
+import { 
+  Controller, 
+  Get, 
+  Post, 
+  Res, 
+  Session, 
+  Body, 
+  Inject
+} from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { query } from 'express';
 
 /**
  * 响应状态吗规范
