@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Param, UseGuards, SetMetadata } from '@nes
 import { GuardService } from './guard.service';
 import { CreateGuardDto } from './dto/create-guard.dto';
 import { RoleGuard } from './role.guard';
+import { Role, ReqUrl } from './role.decorator'
 
 @Controller('guard')
 @UseGuards(RoleGuard)
@@ -14,8 +15,9 @@ export class GuardController {
   }
 
   @Get()
-  @SetMetadata('role', ['admin'])
-  findAll() {
+  @Role('admin')
+  findAll(@ReqUrl() url: string) {
+    console.log('--url---', url)
     return this.guardService.findAll();
   }
 
