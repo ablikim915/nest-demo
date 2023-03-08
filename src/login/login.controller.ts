@@ -4,9 +4,9 @@ import { Controller, Get, Post, Body, Param,
 import { LoginService } from './login.service';
 import { CreateLoginDto } from './dto/create-login.dto';
 import { UpdateLoginDto } from './dto/update-login.dto';
-import * as uuid from 'uuid'
+// import * as uuid from 'uuid'
 
-console.log('-uuid-', uuid.v4())
+// console.log('-uuid-', uuid.v4())
 
 /**
  * 管道转换
@@ -24,8 +24,8 @@ export class LoginController {
   constructor(private readonly loginService: LoginService) {}
 
   @Post()
-  create(@Body() createLoginDto: CreateLoginDto) {
-    return this.loginService.create(createLoginDto);
+  create(@Body() params: CreateLoginDto) {
+    return this.loginService.create(params);
   }
 
   @Get(':id')

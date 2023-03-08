@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { Logger, VersioningType } from '@nestjs/common';
+import { Logger, VersioningType, ValidationPipe } from '@nestjs/common';
 import * as session from 'express-session'
 import { Request, Response, NextFunction } from "express";
 import { NestExpressApplication } from '@nestjs/platform-express';
@@ -51,6 +51,8 @@ async function bootstrap() {
   app.useGlobalInterceptors(new ResponseIntercept())
   // 注册全局过滤器
   app.useGlobalFilters(new HttpExceptionFilter())
+  // 注册全局DTO验证管道
+  app.useGlobalPipes(new ValidationPipe())
 
 
   await app.listen(port);
