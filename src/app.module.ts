@@ -6,9 +6,10 @@ import { GlobalModule } from './global/global.module'
 import { ListModule } from './list/list.module';
 import { UploadModule } from './upload/upload.module';
 import { LoginModule } from './login/login.module';
+import { GuardModule } from './guard/guard.module';
 
 @Module({
-  imports: [UserModule, GlobalModule, ListModule, UploadModule, LoginModule],
+  imports: [UserModule, GlobalModule, ListModule, UploadModule, LoginModule, GuardModule],
   controllers: [AppController],
   providers: [AppService],
 })

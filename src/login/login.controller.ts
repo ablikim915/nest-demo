@@ -3,13 +3,12 @@ import { Controller, Get, Post, Body, Param,
 } from '@nestjs/common';
 import { LoginService } from './login.service';
 import { CreateLoginDto } from './dto/create-login.dto';
-import { UpdateLoginDto } from './dto/update-login.dto';
 // import * as uuid from 'uuid'
 
 // console.log('-uuid-', uuid.v4())
 
 /**
- * 管道转换
+ * 类型转换管道
   ValidationPipe
   ParseIntPipe
   ParseFloatPipe

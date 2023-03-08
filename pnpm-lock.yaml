@@ -18,6 +18,7 @@ specifiers:
   '@types/uuid': ^9.0.1
   '@typescript-eslint/eslint-plugin': ^5.0.0
   '@typescript-eslint/parser': ^5.0.0
+  class-transformer: ^0.5.1
   class-validator: ^0.13.2
   compressing: ^1.5.1
   cors: ^2.8.5
@@ -42,10 +43,11 @@ specifiers:
   uuid: ^9.0.0
 
 dependencies:
-  '@nestjs/common': 8.2.6_glt6otmez4zoecyy5ktjxkg6bi
+  '@nestjs/common': 8.2.6_ufuujcqbszwis444rmt5m3dshy
   '@nestjs/core': 8.2.6_u46rfc4zsyf7ow555nvruuceuq
-  '@nestjs/mapped-types': 1.0.1_rqxpxgq7owxxwqummyzoqneb3a
+  '@nestjs/mapped-types': 1.0.1_zwsss37dro32hxg3resqgaaygq
   '@nestjs/platform-express': 8.2.6_omvfjisvr5sie64myt43vlcpd4
+  class-transformer: 0.5.1
   class-validator: 0.13.2
   compressing: 1.5.1
   cors: 2.8.5
@@ -862,7 +864,7 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nestjs/common/8.2.6_glt6otmez4zoecyy5ktjxkg6bi:
+  /@nestjs/common/8.2.6_ufuujcqbszwis444rmt5m3dshy:
     resolution: {integrity: sha1-NM1cxECC01JcVsldtCyg5Sd7fYU=, tarball: '@nestjs/common/download/@nestjs/common-8.2.6.tgz'}
     peerDependencies:
       cache-manager: '*'
@@ -879,6 +881,7 @@ packages:
         optional: true
     dependencies:
       axios: 0.24.0
+      class-transformer: 0.5.1
       class-validator: 0.13.2
       iterare: 1.2.1
       reflect-metadata: 0.1.13
@@ -906,7 +909,7 @@ packages:
       '@nestjs/websockets':
         optional: true
     dependencies:
-      '@nestjs/common': 8.2.6_glt6otmez4zoecyy5ktjxkg6bi
+      '@nestjs/common': 8.2.6_ufuujcqbszwis444rmt5m3dshy
       '@nestjs/platform-express': 8.2.6_omvfjisvr5sie64myt43vlcpd4
       '@nuxtjs/opencollective': 0.3.2
       fast-safe-stringify: 2.1.1
@@ -920,7 +923,7 @@ packages:
     transitivePeerDependencies:
       - encoding
 
-  /@nestjs/mapped-types/1.0.1_rqxpxgq7owxxwqummyzoqneb3a:
+  /@nestjs/mapped-types/1.0.1_zwsss37dro32hxg3resqgaaygq:
     resolution: {integrity: sha1-eLYgQcekB9tKkOsUBWcyFgK+0Y4=, tarball: '@nestjs/mapped-types/download/@nestjs/mapped-types-1.0.1.tgz'}
     peerDependencies:
       '@nestjs/common': ^7.0.8 || ^8.0.0
@@ -933,7 +936,8 @@ packages:
       class-validator:
         optional: true
     dependencies:
-      '@nestjs/common': 8.2.6_glt6otmez4zoecyy5ktjxkg6bi
+      '@nestjs/common': 8.2.6_ufuujcqbszwis444rmt5m3dshy
+      class-transformer: 0.5.1
       class-validator: 0.13.2
       reflect-metadata: 0.1.13
     dev: false
@@ -944,7 +948,7 @@ packages:
       '@nestjs/common': ^8.0.0
       '@nestjs/core': ^8.0.0
     dependencies:
-      '@nestjs/common': 8.2.6_glt6otmez4zoecyy5ktjxkg6bi
+      '@nestjs/common': 8.2.6_ufuujcqbszwis444rmt5m3dshy
       '@nestjs/core': 8.2.6_u46rfc4zsyf7ow555nvruuceuq
       body-parser: 1.19.1
       cors: 2.8.5
@@ -998,7 +1002,7 @@ packages:
         optional: true
     dependencies:
       optional: 0.1.4
-      '@nestjs/common': 8.2.6_glt6otmez4zoecyy5ktjxkg6bi
+      '@nestjs/common': 8.2.6_ufuujcqbszwis444rmt5m3dshy
       '@nestjs/core': 8.2.6_u46rfc4zsyf7ow555nvruuceuq
       '@nestjs/platform-express': 8.2.6_omvfjisvr5sie64myt43vlcpd4
       tslib: 2.3.1
@@ -1997,6 +2001,9 @@ packages:
   /cjs-module-lexer/1.2.2:
     resolution: {integrity: sha1-n4S6MkSlEvOlTlJ36O70xImGTkA=, tarball: cjs-module-lexer/download/cjs-module-lexer-1.2.2.tgz}
     dev: true
+
+  /class-transformer/0.5.1:
+    resolution: {integrity: sha1-JBR9Xf/Sps6pMKMlCmd63flqszY=, tarball: class-transformer/download/class-transformer-0.5.1.tgz}
 
   /class-validator/0.13.2:
     resolution: {integrity: sha1-ZLAx6fP4Gh4dzQSl1gRzRgiyQUM=, tarball: class-validator/download/class-validator-0.13.2.tgz}
