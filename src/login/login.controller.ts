@@ -3,6 +3,7 @@ import { Controller, Get, Post, Body, Param,
 } from '@nestjs/common';
 import { LoginService } from './login.service';
 import { CreateLoginDto } from './dto/create-login.dto';
+import { ApiTags } from "@nestjs/swagger";
 // import * as uuid from 'uuid'
 
 // console.log('-uuid-', uuid.v4())
@@ -19,6 +20,7 @@ import { CreateLoginDto } from './dto/create-login.dto';
   DefaultValuePipe
  */
 @Controller('login')
+@ApiTags('登录接口')
 export class LoginController {
   constructor(private readonly loginService: LoginService) {}
 

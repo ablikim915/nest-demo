@@ -8,6 +8,7 @@ import * as cors from 'cors';
 import { join } from 'path';
 import { Response as ResponseIntercept } from './common/response';
 import { HttpExceptionFilter } from './common/filter';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 const whiteList = ["/list"] // 白名单
 
@@ -54,6 +55,11 @@ async function bootstrap() {
   // 注册全局DTO验证管道
   app.useGlobalPipes(new ValidationPipe())
 
+  // 初始化swagger文档配置
+  const swgOptions = new DocumentBuilder().setTitle('api文档').setDescription('nest-demo api文档').setVersion('1').addBearerAuth().build();
+  // 创建swagger document
+  const swgDocument = SwaggerModule.createDocument(app, swgOptions)
+  SwaggerModule.setup('/api-docs', app, swgDocument)
 
   await app.listen(port);
   Logger.log(`服务已启动 --> http://localhost:${port}`)

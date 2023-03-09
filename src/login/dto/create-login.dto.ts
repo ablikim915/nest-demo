@@ -1,6 +1,10 @@
 import { IsNotEmpty, IsString, Length, IsNumber } from 'class-validator'
+import { ApiProperty } from "@nestjs/swagger";
 
 export class CreateLoginDto {
+    @ApiProperty({
+        example: "张三"
+    })
     @IsNotEmpty({
         message: "name不能为空"
     })
@@ -10,6 +14,9 @@ export class CreateLoginDto {
     })
     name: string;
 
+    @ApiProperty({
+        example: 18
+    })
     @IsNotEmpty({
         message: "age不能为空"
     })
