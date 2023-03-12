@@ -9,14 +9,15 @@ import { LoginModule } from './login/login.module';
 import { GuardModule } from './guard/guard.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DbTestModule } from './db-test/db-test.module';
+import { NewUserModule } from './new-user/new-user.module';
 
 const connectDB = TypeOrmModule.forRoot({
   type: "mysql", //数据库类型
   username: "root", //账号
-  password: "abu2019..", //密码
+  password: "abuDB915..", //密码
   host: "localhost", //host
   port: 3306, //
-  database: "testDB", //库名
+  database: "user", //库名
   // entities: [__dirname + '/**/*.entity{.ts,.js}'], //实体文件
   synchronize:true, //synchronize字段代表是否自动将实体类同步到数据库
   retryDelay:500, //重试连接数据库间隔
@@ -25,7 +26,7 @@ const connectDB = TypeOrmModule.forRoot({
 })
 
 @Module({
-  imports: [UserModule, GlobalModule, ListModule, UploadModule, LoginModule, GuardModule, connectDB, DbTestModule],
+  imports: [UserModule, GlobalModule, ListModule, UploadModule, LoginModule, GuardModule, connectDB, DbTestModule, NewUserModule],
   controllers: [AppController],
   providers: [AppService],
 })

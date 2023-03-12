@@ -36,7 +36,7 @@ export class UserController {
     @Inject('globalConfig') private readonly gConfig: any // 注入全局模块
   ) {}
 
-  @Get('getCode')
+  @Get('code')
   createCode(@Res() res, @Session() session) {
     const { text, data } = this.userService.createCode();
 

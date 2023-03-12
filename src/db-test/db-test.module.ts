@@ -6,7 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([DbTest]) // 数据库实体关联，并自动创建对应的表
+    // TypeOrmModule.forFeature([DbTest]) // 数据库实体关联，并自动创建对应的表
   ],
   controllers: [DbTestController],
   providers: [DbTestService]
