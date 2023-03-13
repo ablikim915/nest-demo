@@ -47,11 +47,20 @@ export class NewUserService {
     }
   }
 
-  update(id: number, updateNewUserDto: UpdateNewUserDto) {
-    return this.userDBInst.update(id, updateNewUserDto);
+  async update(id: number, updateNewUserDto: UpdateNewUserDto) {
+    const userinfo = await this.userDBInst.findOne(id)  //这样查找表中数据也可以
+    Object.assign(userinfo, updateNewUserDto);
+    return this.userDBInst.save(userinfo);
   }
 
-  remove(id: number) {
+  async remove(id: number) {
+    // 先查出父表中的数据
+    const userinfo = await this.userDBInst.findOne(id)
+    // 从子表中删除父表相关的所有数据
+    await this.tagDBInst.delete({
+      userss: userinfo
+    }) 
+    // 最后删除父表中目标数据
     return this.userDBInst.delete(id);
   }
 
@@ -64,7 +73,7 @@ export class NewUserService {
     })
 
     const tagList: Tags[] = []
-    for(let item of tags) {
+    for(const item of tags) {
       const T = new Tags();
       T.name = item;
       await this.tagDBInst.save(T)
