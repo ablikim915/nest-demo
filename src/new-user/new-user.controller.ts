@@ -26,4 +26,9 @@ export class NewUserController {
   remove(@Param('id') id: string) {
     return this.newUserService.remove(+id);
   }
+
+  @Post('/add/tags')
+  addTags(@Body() params: {tags: string[], userId: string | number}) {
+    return this.newUserService.addTags(params);
+  }
 }

@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, OneToMany } from "typeorm";
+import { Tags } from "./tags.entity";
 
 @Entity()
 export class NewUser {
@@ -18,4 +19,7 @@ export class NewUser {
         type: "timestamp"
     })
     createTime: Date
+
+    @OneToMany(() => Tags, (tags) => tags.userss) // 一对多的方式关联tags表
+    tagsss: Tags[]
 }
