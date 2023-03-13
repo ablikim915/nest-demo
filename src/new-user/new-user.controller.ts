@@ -13,7 +13,7 @@ export class NewUserController {
   }
 
   @Get()
-  findAll(@Query() query: {keyword: string}) {
+  findAll(@Query() query: {keyword: string, page: number, pageSize: number}) {
     return this.newUserService.findAll(query);
   }
 

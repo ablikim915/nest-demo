@@ -16,12 +16,29 @@ export class NewUserService {
     return this.userDBInst.save(data);
   }
 
-  findAll(query: {keyword: string}) {
-    return this.userDBInst.find({
+  async findAll(query: {keyword: string, page: number, pageSize: number}) {
+    const data = await this.userDBInst.find({
+      where: {
+        name: Like(`%${query.keyword}%`)
+      },
+      // 排序
+      order: {
+        id: 'DESC'  // DESC:倒序  ASC:正序
+      },
+      // 分页
+      skip: (query.page - 1) * query.pageSize,
+      take: query.pageSize
+    });
+    // 返回总数
+    const total = await this.userDBInst.count({
       where: {
         name: Like(`%${query.keyword}%`)
       }
-    });
+    })
+    return {
+      data,
+      total
+    }
   }
 
   update(id: number, updateNewUserDto: UpdateNewUserDto) {
